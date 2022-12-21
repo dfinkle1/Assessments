@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"
+    />
+    <style>
+      img {
+        max-width: 70%;
+      }
+
+      .image-center {
+        display: block;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fink's Movie Reviews!</h1>
+    <div class = 'container'>
+        <form class="col-sm-5">
+         <div class="col-sm-4 form-control">
+            <label for="movtitle">Movie Title:</label>
+            <input class='form-control'type="text" id="mtitle" name="mtitle" value="" minlength="2">
+        </div>
+        <div class="col-sm-4 form-control">
+            <label for="movrating">Movie Rating:</label>
+            <input class='form-control' type="number" min='0'max="10"
+            >
+        </div>
+        <div class="col-sm-4 form control">
+            <button class='form-control' id="form-submit">Submit</button></div>
+    </form>
+    </div>
+    <div class = 'movRankings'></div>
+</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      
+// Part Two - Movies App!
+// Build an application that uses jQuery to do the following:
+
+// Contains a form with two inputs for a title and rating along with a button to submit the form.
+// When the form is submitted, capture the values for each of the inputs and append them to the DOM along with a button to remove each title and rating from the DOM.
+// When the button to remove is clicked, remove each title and rating from the DOM.
+
+
+        console.log("Fink's movie reviews")
+        let $subBtn = $('#form-submit');
+        $subBtn.on("click", function (evt) {
+  evt.preventDefault();
+  let $input1 = $("input").get(0).value;
+  let $input2 = $("input").get(1).value;
+  const $createDiv = $("<div></div>");
+  const $removeBtn = $("<button>Remove</button>");
+  const $rankStorage = $("<div></div>").addClass("container");
+  // let $input3 = $('input').get(2&).value;
+  if ($input2 < 0 || $input2 > 10 || $input1.length < 2 || $input2.length > 2) {
+    alert(`'Pick a number between 1-10' & Must be 2 Characters long`);
+  } else {
+    $removeBtn.on("click", function (e) {
+      e.target.parentElement.remove();
+    });
+    $createDiv
+      .text("" + $input1 + "'s Movie Score is a " + $input2 + "/10")
+      .addClass("movRank")
+      .appendTo($rankStorage);
+    $removeBtn.appendTo($rankStorage);
+    $rankStorage.appendTo(".movRankings");
+  }
+});
+
+        $('h1').css('text-align','center');
+        $('input').css('text-align','center');
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
