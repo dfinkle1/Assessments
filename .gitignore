@@ -3,6 +3,7 @@ connect-four-refactor/.vscode/settings.json
 Movies-App-JQuery/.vscode/settings.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
+node_modules
 *.py[cod]
 *$py.class
 
