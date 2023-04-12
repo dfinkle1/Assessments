@@ -33,12 +33,35 @@ describe("GET /items/:name", function () {
   });
 });
 
+describe("POST /items", function () {
+  test("POST add items to Database", async function () {
+    const res = await request(app).post("/items").send(candy);
+    expect(res.statusCode).toBe(201);
+    expect(res.body).toEqual({ Items: items });
+  });
+});
+
 describe("PATCH /items/:name", function () {
   test("PATCH updates a single items name", async function () {
     const res = await request(app).patch(`/items/${candy.name}`).send({
       name: "Troll",
     });
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ name: "Troll", price: candy.price });
+    expect(res.body).toEqual({
+      name: "Troll",
+      price: candy.price,
+    });
+  });
+  test("Responds with 404 if name invalid", async function () {
+    const res = await request(app).patch(`/items/giraffe`);
+    expect(res.statusCode).toBe(404);
+  });
+});
+
+describe("DELETE /items/:name", function () {
+  test("DELETE a single item", async function () {
+    const res = await request(app).delete(`/items/${candy.name}`);
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ message: "deleted" });
   });
 });

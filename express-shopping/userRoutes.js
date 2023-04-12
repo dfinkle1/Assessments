@@ -33,11 +33,11 @@ router.patch("/:name", (req, res) => {
 
 router.delete("/:name", (req, res) => {
   const foundItem = items.find((item) => item.name === req.params.name);
-  if (foundItem === undefined) {
+  if (foundItem === -1) {
     throw new ExpressError("Cat not found", 404);
   }
-  captureStackTrace.splice(foundItem, 1);
-  res.json({ message: "deleted" });
+  items.splice(foundItem, 1);
+  res.status(200).json({ message: "deleted" });
 });
 
 module.exports = router;
