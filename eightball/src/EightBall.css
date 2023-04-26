@@ -1,0 +1,16 @@
+.EightBall {
+  display: flex;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 300px;
+  border: 2px solid;
+  border-radius: 200px;
+  color: white;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
