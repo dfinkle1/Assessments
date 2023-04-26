@@ -27,7 +27,9 @@ const Eightball = (props) => {
       >
         {msg}
       </div>
-      <button onClick={restart}>Restart Game</button>
+      <button onClick={restart} className="">
+        Restart Game
+      </button>
     </>
   );
 };
