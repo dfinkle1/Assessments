@@ -7,7 +7,6 @@ const BoxList = () => {
   const [boxes, newBoxes] = useState([
     { color: "green", width: 200, height: 50 },
     { color: "purple", width: 200, height: 50 },
-    ,
   ]);
   const addBox = (newBox) => {
     newBoxes((boxes) => [...boxes, { ...newBox }]);
@@ -16,10 +15,11 @@ const BoxList = () => {
   return (
     <div>
       <NewBoxForm addBox={addBox} />
+
       {boxes.map(({ color, height, width }) => (
         <Box color={color} height={parseInt(height)} width={parseInt(width)} />
       ))}
-      <Box color="yellow" height={200} width={200} />
+      <Box color="green" height={200} width={200} />
     </div>
   );
 };
