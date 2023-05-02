@@ -1,0 +1,16 @@
+.Madform {
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid;
+  border-color: green;
+}
+form input {
+  display: block;
+  margin-top: 10px;
+  width: 100px;
+  padding: 10px;
+}
