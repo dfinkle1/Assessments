@@ -10,10 +10,7 @@ const NewBoxForm = ({ addBox }) => {
   const [formData, setFormData] = useState(INITIAL_STATE);
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((formData) => ({
-      ...formData,
-      [name]: value,
-    }));
+    setFormData((formData) => ({ ...formData, [name]: value }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
